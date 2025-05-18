@@ -92,7 +92,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Ajoute ceci à la fin de ton fichier routes/auth.js
 
 router.get('/logout', (req, res) => {
   if (req.session) {

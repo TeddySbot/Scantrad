@@ -7,7 +7,24 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>S'inscrire</h1>
+  <h1>S'inscrire</h1>
+
+  <form action="/auth/signup" method="POST" class="signup-form">
+    <label for="username">Nom d'utilisateur</label>
+    <input type="text" id="username" name="username" required placeholder="Votre pseudo">
+  
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required placeholder="exemple@mail.com">
+  
+    <label for="password">Mot de passe</label>
+    <input type="password" id="password" name="password" required placeholder="Votre mot de passe">
+  
+    <label for="passwordConfirm">Confirmer le mot de passe</label>
+    <input type="password" id="passwordConfirm" name="passwordConfirm" required placeholder="Confirmez votre mot de passe">
+  
+    <button type="submit">S'inscrire</button>
+  </form>
+  
     
 </body>
 </html>

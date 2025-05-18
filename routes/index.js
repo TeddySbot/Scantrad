@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', { 
+    user: req.session.user // Passe l'utilisateur à la vue
+  });
 });
 
 router.get('/login', (req, res) => {
@@ -13,8 +15,6 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-// router.post('/upload', uploadController.uploadVideo);
-// router.get('/videos', videoController.listVideos);
-// router.get('/videos/:filename', videoController.showVideo);
+
 
 module.exports = router;

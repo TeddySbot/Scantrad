@@ -3,13 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Celestial Scan</title>
-  <link rel="stylesheet" href="/styles.css">
+  <title>Accueil</title>
 </head>
 <body>
-    <a href="/login"> login</a>
-    <br>
-    <a href="/signup"> signup</a>
+  <% if (user) { %>
+    <div class="user-info">
+      <p>Bienvenue, <strong><%= user.username %></strong> !</p>
+      <a href="/auth/logout">Se déconnecter</a>
+    </div>
+  <% } else { %>
+    <div class="auth-links">
+      <a href="/login">Connexion</a>
+      <a href="/signup">Inscription</a>
+    </div>
+  <% } %>
 
+  <!-- Le reste de votre contenu -->
 </body>
 </html>

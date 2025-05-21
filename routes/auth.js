@@ -4,11 +4,12 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 
+
+// System d'enregistrement
 router.post('/signup', async (req, res) => {
   try {
     const { username, email, password, passwordConfirm } = req.body;
     
-    // Validation
     if (password !== passwordConfirm) {
       return res.status(400).render('signup', { 
         error: 'Passwords do not match',
@@ -16,7 +17,6 @@ router.post('/signup', async (req, res) => {
       });
     }
 
-    // Création utilisateur
     const hashedPassword = await bcrypt.hash(password, 10);
     const user = new User({ username, email, password: hashedPassword });
     await user.save();
@@ -31,6 +31,7 @@ router.post('/signup', async (req, res) => {
   }
 });
 
+// Sytem pour se connecter
 router.post('/login', async (req, res) => {
   try {
       if (!req.session) {
@@ -39,7 +40,6 @@ router.post('/login', async (req, res) => {
 
       const { email, password } = req.body;
 
-      // Validation
       if (!email || !password) {
           return res.status(400).render('login', {
               error: 'Email et mot de passe requis',
@@ -63,7 +63,6 @@ router.post('/login', async (req, res) => {
           });
       }
 
-      // Stockage dans la session
       req.session.user = {
           id: user._id,
           username: user.username,
@@ -71,7 +70,6 @@ router.post('/login', async (req, res) => {
           role: user.role
       };
 
-      // Enregistrement de la session avant redirection
       req.session.save(err => {
           if (err) {
               console.error('Erreur sauvegarde session:', err);
@@ -92,7 +90,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
+// Pour se déconnecter de la session
 router.get('/logout', (req, res) => {
   if (req.session) {
     req.session.destroy(err => {
@@ -100,7 +98,7 @@ router.get('/logout', (req, res) => {
         console.error('Erreur lors de la déconnexion :', err);
         return res.status(500).send('Erreur lors de la déconnexion.');
       }
-      res.clearCookie('connect.sid'); // Nom par défaut du cookie de session
+      res.clearCookie('connect.sid'); 
       res.redirect('/login');
     });
   } else {

@@ -11,6 +11,11 @@ const configureExpress = require('./config/express.config');
 const indexRoutes = require('./routes/index');
 const authRoutes = require('./routes/auth');
 const connectToDatabase = require('./config/dbattlass');
+const adminRoutes = require('./routes/admin');
+const projectRoutes = require('./routes/projects');
+const chapterRoutes = require('./routes/chapters');
+
+
 
 // Lancement Express et DB
 connectToDatabase();
@@ -36,6 +41,10 @@ app.use(session({
 //routes
 app.use('/', indexRoutes);
 app.use('/auth', authRoutes);
+app.use('/admin', adminRoutes);
+app.use('/projects', projectRoutes);
+app.use('/chapters', chapterRoutes);
+
 
 
 // Lancement serveur

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title><%= project.title %> - Livre</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <%- include('components/header') %>
+
+  <main>
+    <a href="/"><button>Retour aux livres</button></a>
+
+    <h1><%= project.title %></h1>
+    <% if (project.alternativeTitle) { %>
+      <h2>(<%= project.alternativeTitle %>)</h2>
+    <% } %>
+
+    <% if (project.coverUrl) { %>
+      <img src="<%= project.coverUrl %>" alt="Couverture de <%= project.title %>" style="max-width:300px;">
+    <% } %>
+
+    <p><strong>Auteur :</strong> <%= project.author %></p>
+    <p><strong>Artiste :</strong> <%= project.artist %></p>
+    <p><strong>Thème :</strong> <%= project.theme %></p>
+    <p><strong>Résumé :</strong> <%= project.summary %></p>
+
+    <% if (user && user.role === 'writer') { %>
+      <a href="/chapters/create/<%= project._id %>">
+        <button>Ajouter un chapitre</button>
+      </a>
+    <% } %>
+
+    <h2>Chapitres</h2>
+<% if (chapters.length > 0) { %>
+  <ul>
+    <% chapters.forEach(chapter => { %>
+      <li>
+        Chapitre <%= chapter.number %> :
+        <a href="/chapters/<%= chapter._id %>"><%= chapter.title || "Sans titre" %></a> —
+        Publié le : <%= chapter.releaseDate ? chapter.releaseDate.toLocaleDateString() : 'Non publié' %>
+      </li>
+    <% }) %>
+  </ul>
+<% } else { %>
+  <p>Aucun chapitre disponible pour le moment.</p>
+<% } %>
+
+
+  </main>
+
+  <%- include('components/footer') %>
+
+</body>
+</html>

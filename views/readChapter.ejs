@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= chapter.title %></title>
+  <link rel="stylesheet" href="/styles/readChapter.css">
+</head>
+<body>
+  <h1><%= chapter.title %></h1>
+  <div id="reader" data-pages='<%- JSON.stringify(chapter.pages) %>'>
+    <img id="pageImage" src="<%= chapter.pages[0] %>">
+  </div>
+
+  <script src="/scripts/readChapter.js"></script>
+</body>
+</html>

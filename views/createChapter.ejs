@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ajouter un chapitre - <%= project.title %></title>
+</head>
+<body>
+  <h1>Ajouter un chapitre pour : <%= project.title %></h1>
+
+  <form action="/chapters/create/<%= project._id %>" method="POST" enctype="multipart/form-data">
+    <label>Numéro du chapitre :</label><br>
+    <input type="number" name="number" required><br><br>
+
+    <label>Titre du chapitre :</label><br>
+    <input type="text" name="title"><br><br>
+
+    <label>Date de sortie :</label><br>
+    <input type="date" name="releaseDate"><br><br>
+
+    <label>Scanlator :</label><br>
+    <input type="text" name="scanlator"><br><br>
+
+    <label>Pages :</label><br>
+    <input type="file" name="pages" accept="image/*" multiple required><br><br>
+
+    <button type="submit">Ajouter chapitre</button>
+  </form>
+</body>
+</html>

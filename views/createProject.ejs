@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accueil</title>
+</head>
+
+    <%- include('components/header') %>
+
+    <h1>Créer un nouveau livre</h1>
+
+    <form action="/projects/create" method="POST" enctype="multipart/form-data">
+    <label>Titre :</label><br>
+    <input type="text" name="title" required><br><br>
+
+    <label>Titre alternatif :</label><br>
+    <input type="text" name="alternativeTitle"><br><br>
+
+    <label>Résumé :</label><br>
+    <textarea name="summary"></textarea><br><br>
+
+    <label>Couverture :</label><br>
+    <input type="file" name="coverImage" accept="image/*"><br><br>
+
+    <label>Genres :</label><br>
+    <input type="checkbox" name="genres" value="Action"> Action
+    <input type="checkbox" name="genres" value="Adventure"> Adventure
+    <input type="checkbox" name="genres" value="Boys' Love"> Boys' Love
+    <input type="checkbox" name="genres" value="Comedy"> Comedy
+    <input type="checkbox" name="genres" value="Crime"> Crime
+    <input type="checkbox" name="genres" value="Drama"> Drama
+    <input type="checkbox" name="genres" value="Fantasy"> Fantasy
+    <input type="checkbox" name="genres" value="Girls' Love"> Girls' Love
+    <input type="checkbox" name="genres" value="Historical"> Historical
+    <input type="checkbox" name="genres" value="Horror"> Horror
+    <input type="checkbox" name="genres" value="Isekai"> Isekai
+    <input type="checkbox" name="genres" value="Magical Girls"> Magical Girls
+    <input type="checkbox" name="genres" value="Mecha"> Mecha
+    <input type="checkbox" name="genres" value="Medical"> Medical
+    <input type="checkbox" name="genres" value="Mystery"> Mystery
+    <input type="checkbox" name="genres" value="Philosophical"> Philosophical
+    <input type="checkbox" name="genres" value="Psychological"> Psychological
+    <input type="checkbox" name="genres" value="Romance"> Romance
+    <input type="checkbox" name="genres" value="Sci-Fi"> Sci-Fi
+    <input type="checkbox" name="genres" value="Slice of Life"> Slice of Life
+    <input type="checkbox" name="genres" value="Sports"> Sports
+    <input type="checkbox" name="genres" value="Superhero"> Superhero
+    <input type="checkbox" name="genres" value="Thriller"> Thriller
+    <input type="checkbox" name="genres" value="Tragedy"> Tragedy
+    <input type="checkbox" name="genres" value="Wuxia"> Wuxia
+    <br><br>
+
+    <label>Thèmes :</label><br>
+    <input type="checkbox" name="themes" value="Aliens"> Aliens
+    <input type="checkbox" name="themes" value="Animals"> Animals
+    <input type="checkbox" name="themes" value="Cooking"> Cooking
+    <input type="checkbox" name="themes" value="Crossdressing"> Crossdressing
+    <input type="checkbox" name="themes" value="Delinquents"> Delinquents
+    <input type="checkbox" name="themes" value="Demons"> Demons
+    <input type="checkbox" name="themes" value="Genderswap"> Genderswap
+    <input type="checkbox" name="themes" value="Ghosts"> Ghosts
+    <input type="checkbox" name="themes" value="Gyaru"> Gyaru
+    <input type="checkbox" name="themes" value="Harem"> Harem
+    <input type="checkbox" name="themes" value="Incest"> Incest
+    <input type="checkbox" name="themes" value="Loli"> Loli
+    <input type="checkbox" name="themes" value="Mafia"> Mafia
+    <input type="checkbox" name="themes" value="Magic"> Magic
+    <input type="checkbox" name="themes" value="Martial Arts"> Martial Arts
+    <input type="checkbox" name="themes" value="Military"> Military
+    <input type="checkbox" name="themes" value="Monster Girls"> Monster Girls
+    <input type="checkbox" name="themes" value="Monsters"> Monsters
+    <input type="checkbox" name="themes" value="Music"> Music
+    <input type="checkbox" name="themes" value="Ninja"> Ninja
+    <input type="checkbox" name="themes" value="Office Workers"> Office Workers
+    <input type="checkbox" name="themes" value="Police"> Police
+    <input type="checkbox" name="themes" value="Post-Apocalyptic"> Post-Apocalyptic
+    <input type="checkbox" name="themes" value="Reincarnation"> Reincarnation
+    <input type="checkbox" name="themes" value="Reverse Harem"> Reverse Harem
+    <input type="checkbox" name="themes" value="Samurai"> Samurai
+    <input type="checkbox" name="themes" value="School Life"> School Life
+    <input type="checkbox" name="themes" value="Shota"> Shota
+    <input type="checkbox" name="themes" value="Supernatural"> Supernatural
+    <input type="checkbox" name="themes" value="Survival"> Survival
+    <input type="checkbox" name="themes" value="Time Travel"> Time Travel
+    <input type="checkbox" name="themes" value="Traditional Games"> Traditional Games
+    <input type="checkbox" name="themes" value="Vampires"> Vampires
+    <input type="checkbox" name="themes" value="Video Games"> Video Games
+    <input type="checkbox" name="themes" value="Villainess"> Villainess
+    <input type="checkbox" name="themes" value="Virtual Reality"> Virtual Reality
+    <input type="checkbox" name="themes" value="Zombies"> Zombies
+    <br><br>
+
+    <label>Auteur :</label><br>
+    <input type="text" name="author"><br><br>
+
+    <label>Artiste :</label><br>
+    <input type="text" name="artist"><br><br>
+
+    <button type="submit">Créer le livre</button>
+    </form>
+
+    <%- include('components/footer') %>
+
+
+</body>
+</html>

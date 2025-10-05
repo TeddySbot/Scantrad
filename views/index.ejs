@@ -6,18 +6,36 @@
   <title>Accueil</title>
 </head>
 <body>
-  <% if (user) { %>
-    <div class="user-info">
-      <p>Bienvenue, <strong><%= user.username %></strong> !</p>
-      <a href="/auth/logout">Se déconnecter</a>
-    </div>
-  <% } else { %>
-    <div class="auth-links">
-      <a href="/login">Connexion</a>
-      <a href="/signup">Inscription</a>
-    </div>
-  <% } %>
+    <% if (user) { %>
+      <div class="user-info">
+        <p>Bienvenue, <strong><%= user.username %></strong> !</p>
+        <a href="/auth/logout">Se déconnecter</a>
+      </div>
+    <% } else { %>
+      <div class="auth-links">
+        <a href="/login">Connexion</a>
+        <a href="/signup">Inscription</a>
+      </div>
+    <% } %>
 
-  <!-- Le reste de votre contenu -->
+    <% if (user && user.role === 'writer') { %>
+      <a href="/projects/create">
+        <button>Créer un nouveau livre</button>
+      </a>
+    <% } %>
+
+    <h2>Tous les livres disponibles :</h2>
+    <div style="display:flex; flex-wrap:wrap;">
+      <% projects.forEach(project => { %>
+        <div style="border:1px solid #ccc; margin:10px; padding:10px; width:200px;">
+          <h3><%= project.title %></h3>
+          <% if (project.coverUrl) { %>
+            <img src="<%= project.coverUrl %>" alt="Couverture" style="width:100%; height:auto;">
+          <% } %>
+          <p><%= project.summary ? project.summary.substring(0, 100) + "..." : "" %></p>
+          <a href="/projects/<%= project._id %>">Lire plus</a>
+        </div>
+      <% }) %>
+    </div>
 </body>
 </html>
